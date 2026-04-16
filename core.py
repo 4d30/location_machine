@@ -10,7 +10,7 @@ import combinatorics
 
 
 def location_generator():
-    with open('test.txt') as handle:
+    with open('data/test.txt') as handle:
         locs = list(handle)
     shuffle(locs)
     locs = map(methodcaller('strip'), locs)

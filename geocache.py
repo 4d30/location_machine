@@ -5,7 +5,7 @@ from functools import lru_cache
 
 from alonzo.church import parallel
 
-_filename = '../data/countries+states+cities.json'
+_filename = './data/countries+states+cities.json'
 with open(_filename, 'r') as handle:
     countries = json.load(handle)
 
