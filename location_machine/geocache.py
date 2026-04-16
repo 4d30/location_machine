@@ -3,7 +3,7 @@
 import json
 from functools import lru_cache
 
-from alonzo.alonzo.church import parallel
+from alonzo.church import parallel
 
 _filename = '../data/countries+states+cities.json'
 with open(_filename, 'r') as handle:
