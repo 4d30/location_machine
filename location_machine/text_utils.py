@@ -2,7 +2,7 @@
 
 from operator import methodcaller
 
-from alonzo.church import sequential
+from alonzo.alonzo.church import sequential
 
 
 def strip_whitespace(location_string):

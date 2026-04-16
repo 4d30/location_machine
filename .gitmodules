@@ -1,0 +1,3 @@
+[submodule "location_machine/alonzo"]
+	path = location_machine/alonzo
+	url = git@github.com:4d30/alonzo.git
