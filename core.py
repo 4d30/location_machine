@@ -4,9 +4,9 @@ import sys
 from random import shuffle
 from operator import methodcaller
 
-import text_utils
-import geocache
-import combinatorics
+from . import text_utils
+from . import geocache
+from . import combinatorics
 
 
 
