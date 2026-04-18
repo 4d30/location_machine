@@ -9,26 +9,8 @@ import geocache
 import combinatorics
 
 
-def location_generator():
-    with open('data/test.txt') as handle:
-        locs = list(handle)
-    shuffle(locs)
-    locs = map(methodcaller('strip'), locs)
-    locs = map(methodcaller('strip', '"'), locs)
-    yield from locs
 
-
-def stop():
-    vv = input('##########')
-    if vv == 'q':
-        sys.exit(0)
-    elif vv == 'b':
-        return breakpoint
-    else:
-        return bool
-
-
-def process(location_string):
+def extract_locations(location_string):
     groups = text_utils.split_into_groups(location_string)
     for tkns in groups:
         tkns = text_utils.preprocess(tkns)
@@ -48,15 +30,33 @@ def process(location_string):
         yield from output
 
 
-def main():
-    import json
-    for ll in location_generator():
-        print(ll)
-        out = process(ll)
-        for each in out:
-            print(json.dumps(each, indent=2))
-        stop()()
-
-
 if __name__ == '__main__':
+    def main():
+        import json
+        for ll in location_generator():
+            print(ll)
+            out = process(ll)
+            for each in out:
+                print(json.dumps(each, indent=2))
+            stop()()
+
+
+    def _location_generator():
+        with open('data/test.txt') as handle:
+            locs = list(handle)
+        shuffle(locs)
+        locs = map(methodcaller('strip'), locs)
+        locs = map(methodcaller('strip', '"'), locs)
+        yield from locs
+
+
+    def _stop():
+        vv = input('##########')
+        if vv == 'q':
+            sys.exit(0)
+        elif vv == 'b':
+            return breakpoint
+        else:
+            return bool
+
     main()
