@@ -34,7 +34,7 @@ def split_into_groups(location_string):
 
 
 def make_nice(lrc):
-    return {'@type': 'Place',
+    return {'@type': 'PostalAddress',
             'addressLocality': lrc['L'],
             'addressRegion': lrc['R'],
             'addressCountry': lrc['C']}
